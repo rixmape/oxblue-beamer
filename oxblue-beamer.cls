@@ -4,6 +4,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
 \RequirePackage{minted}
+\RequirePackage{tikz}
 
 % Set up code styling
 \setminted{
@@ -37,6 +38,15 @@
 \setbeamercolor{block title example}{bg=green, fg=white}
 \setbeamercolor{block body example}{bg=green!10}
 
+% Set custom footline
+\setbeamertemplate{footline}{
+    \begin{beamercolorbox}[wd=\textwidth,ht=4mm,dp=2mm,rightskip=5mm,leftskip=5mm]{title in head/foot}
+    \insertframenumber{} / \inserttotalframenumber
+    \hfill
+    \insertshortauthor{} --- \insertshorttitle{}
+    \end{beamercolorbox}
+}
+
 % Section beginning frame
 \AtBeginSection[]{
     {
@@ -54,8 +64,7 @@
 % Define backmatter
 \newcommand{\backmatter}[1][Thank you for listening!]{
     \setbeamercolor{background canvas}{bg=blue}
-    \setbeamertemplate{footline}{}
-    \begin{frame}
+    \begin{frame}[plain]
     \centering \color{white}
     {\huge #1}
     \par \vspace{5mm}
