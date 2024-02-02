@@ -1,10 +1,20 @@
 \ProvidesClass{oxblue-beamer}[2023/11/20 Oxford Blue Beamer Class]
-\LoadClass{beamer}
 
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
 \RequirePackage{minted}
 \RequirePackage{tikz}
+
+\newif\ifshowendframe
+\showendframefalse % Default is to hide the end frame
+\DeclareOption{endframe}{\showendframetrue}
+
+\newif\ifshowsectionframe
+\showsectionframefalse % Default is to hide the section frame
+\DeclareOption{sectionframe}{\showsectionframetrue}
+
+\ProcessOptions\relax
+\LoadClass{beamer}
 
 % Set up code styling
 \setminted{
@@ -49,25 +59,30 @@
 
 % Section beginning frame
 \AtBeginSection[]{
+    \ifshowsectionframe
     {
     \setbeamercolor{background canvas}{bg=blue}
-    \setbeamertemplate{footline}{}
-    \begin{frame}
+    \begin{frame}[plain]
     \centering \color{white}
     {\Large Part \insertsectionnumber}
     \par \vspace{5mm}
     {\huge\secname}
     \end{frame}
     }
+    \fi
 }
 
-% Define backmatter
-\newcommand{\backmatter}[1][Thank you for listening!]{
+% End frame
+\AtEndDocument{
+    \ifshowendframe
+    {
     \setbeamercolor{background canvas}{bg=blue}
     \begin{frame}[plain]
     \centering \color{white}
-    {\huge #1}
+    {\huge Thank you!}
     \par \vspace{5mm}
     {\Large Any questions?}
     \end{frame}
+    }
+    \fi
 }
