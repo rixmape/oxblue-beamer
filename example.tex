@@ -1,6 +1,8 @@
 \documentclass{oxblue-beamer}
 
-\title{Sample Presentation using OxBlue Beamer}
+\title[Sample Presentation]{
+    Sample Presentation with \texttt{oxblue-beamer} Class
+}
 \author[Dela Cruz, Mendoza, et al.]{
     Abby Dela Cruz\inst{1} \and
     Ben Mendoza\inst{2} \and
@@ -31,19 +33,29 @@
 \section{Introduction}
 
 \begin{frame}{Introduction}
-This is a sample slide in the \textbf{Introduction} section.
+    The \texttt{oxblue-beamer} class is a simple and clean Beamer theme that is suitable for academic presentations.
+    \bigskip
+    \begin{itemize}
+        \item Inspired by the Oxford University branding guidelines
+        \item Uses the \texttt{Copenhagen} theme as its base
+        \item Rich in features and customizations
+    \end{itemize}
+\end{frame}
 
-\begin{equation}
-\begin{split}
-\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \pmb{u}) &= 0 \\
-\frac{\partial \rho \pmb{u}}{\partial t} + \nabla \cdot (\rho \pmb{u} \pmb{u}^T + p \pmb{I}) &= \pmb{f} \\
-\frac{\partial \rho E}{\partial t} + \nabla \cdot (\rho E \pmb{u} + p \pmb{u}) &= \pmb{u} \cdot \pmb{f}
-\end{split}
-\end{equation}
+\begin{frame}{Introduction (cont'd)}
+    This is a sample slide in the \textbf{Introduction} section.
+
+    \begin{equation}
+        \begin{split}
+            \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \pmb{u}) &= 0 \\
+            \frac{\partial \rho \pmb{u}}{\partial t} + \nabla \cdot (\rho \pmb{u} \pmb{u}^T + p \pmb{I}) &= \pmb{f} \\
+            \frac{\partial \rho E}{\partial t} + \nabla \cdot (\rho E \pmb{u} + p \pmb{u}) &= \pmb{u} \cdot \pmb{f}
+        \end{split}
+    \end{equation}
 
 \end{frame}
 
-\section{Code Highlighting}
+\section{Custom Features}
 
 \begin{frame}[fragile]{Code Example}
 Here's an example of highlighted code using \texttt{minted}:
@@ -66,8 +78,6 @@ def fibonacci(n):
 \end{minted}
 \end{frame}
 
-\section{Block Examples}
-
 \begin{frame}{Block Examples}
 \begin{block}{Normal Block Title}
 This is a normal block.
@@ -81,5 +91,7 @@ This is an alerted block.
 This is an example block.
 \end{exampleblock}
 \end{frame}
+
+\backmatter
 
 \end{document}

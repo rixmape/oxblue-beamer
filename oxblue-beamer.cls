@@ -26,6 +26,7 @@
 \usecolortheme[named=blue]{structure}
 \setbeamertemplate{headline}{}
 \setbeamertemplate{navigation symbols}{}
+\setbeamerfont{footline}{size=\fontsize{7}{9}}
 \useinnertheme[shaded=false,shadow=false]{tcolorbox}
 
 % Block colors
@@ -42,8 +43,22 @@
     \setbeamercolor{background canvas}{bg=blue}
     \setbeamertemplate{footline}{}
     \begin{frame}
-    \centering
-    \huge\color{white}\secname
+    \centering \color{white}
+    {\Large Part \insertsectionnumber}
+    \par \vspace{5mm}
+    {\huge\secname}
     \end{frame}
     }
+}
+
+% Define backmatter
+\newcommand{\backmatter}[1][Thank you for listening!]{
+    \setbeamercolor{background canvas}{bg=blue}
+    \setbeamertemplate{footline}{}
+    \begin{frame}
+    \centering \color{white}
+    {\huge #1}
+    \par \vspace{5mm}
+    {\Large Any questions?}
+    \end{frame}
 }
