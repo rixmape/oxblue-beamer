@@ -86,3 +86,24 @@
     }
     \fi
 }
+
+% Environment for full image slide
+\newcommand{\fullimage}[2][]{%
+    \setbeamertemplate{navigation symbols}{}
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[at=(current page.center)] {
+            \includegraphics[height=\paperheight,keepaspectratio]{#2}
+        };
+        \ifx\relax#1\relax\else
+            \node[
+                anchor=south east,
+                text width=\paperwidth,
+                align=right, font=\footnotesize,
+                text=white,
+                fill=blue!50!black,
+                fill opacity=0.7,
+                text opacity=1,
+            ] at (current page.south east) {#1};
+        \fi
+    \end{tikzpicture}
+}
